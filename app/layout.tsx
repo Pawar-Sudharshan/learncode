@@ -2,6 +2,8 @@ import type { Metadata } from "next";
 import { Geist, Geist_Mono, Pixelify_Sans, Inter, Jersey_10 } from "next/font/google";
 import "./globals.css";
 import Provider from "./provider";
+import { ClerkProvider } from '@clerk/nextjs'
+
 
 const geistSans = Geist({
   variable: "--font-geist-sans",
@@ -13,16 +15,16 @@ const geistMono = Geist_Mono({
   subsets: ["latin"],
 });
 
-const GameFont= Jersey_10({
+const GameFont = Jersey_10({
   subsets: ["latin"],
   variable: "--font-game",
-  weight: ['400' ]
+  weight: ['400']
 });
 
-const inter= Inter({
+const inter = Inter({
   subsets: ["latin"],
   variable: "--font-inter",
-}); 
+});
 
 export const metadata: Metadata = {
   title: "Create Next App",
@@ -34,23 +36,27 @@ export default function RootLayout({
 }: Readonly<{
   children: React.ReactNode;
 }>) {
+
   return (
+
     <html lang="en" suppressHydrationWarning className="dark">
       <body
         className={`${geistSans.variable} ${geistMono.variable} 
         ${GameFont.variable} ${inter.variable}
         antialiased`}
       >
-        <Provider
-          attribute="class"
+        <ClerkProvider>
+          <Provider
+            attribute="class"
             defaultTheme="dark"
             enableSystem
             disableTransitionOnChange
-        >
-          {children}
-        </Provider>
-
+          >
+            {children}
+          </Provider>
+        </ClerkProvider>
       </body>
     </html>
+
   );
 }
