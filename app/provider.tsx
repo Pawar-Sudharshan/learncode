@@ -3,11 +3,18 @@
 
 import React from "react";
 import { ThemeProvider as NextThemesProvider } from "next-themes";
+import { useUser } from "@clerk/nextjs";
 
 type ProviderProps = React.ComponentProps<typeof NextThemesProvider>;
 
-function Provider({ children, ...props }: ProviderProps) {
+// const {user} =useUser();
 
+// const createNewUser=()=>{
+
+// }
+
+function Provider({ children, ...props }: ProviderProps) {
+    
     return <NextThemesProvider {...props}>{children}</NextThemesProvider>;
 }
 

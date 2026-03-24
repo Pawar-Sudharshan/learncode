@@ -34,6 +34,7 @@ export async function POST(req: NextRequest) {
         .values({
           name: user.fullName || user.firstName || "Anonymous",
           email: email,
+          clerkId: user.id,
         })
         .returning();
 
