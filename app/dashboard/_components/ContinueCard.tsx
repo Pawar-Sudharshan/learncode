@@ -71,7 +71,7 @@ export default function ContinueCard({ courseId }: Props) {
         ) : (
            <>
              <Rocket className="w-4 h-4 transition-transform group-hover:-translate-y-0.5" />
-             Resume Quest
+             Continue Quest
            </>
         )}
       </Button>

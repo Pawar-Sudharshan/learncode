@@ -6,6 +6,7 @@ import { Course } from '../../_components/CourseList';
 import axios from 'axios';
 import { toast } from 'sonner';
 import { Loader } from 'lucide-react';
+import ContinueCard from '../../../dashboard/_components/ContinueCard';
 
 interface Props {
   courseDetail: Course | null;
@@ -56,9 +57,9 @@ export default function CourseDetailBanner({ courseDetail, loading, refreshData 
         
         <div className="mt-8">
           {courseDetail.userEnroll ? (
-            <Button variant={"pixel" as any} size="lg" className="opacity-90">
-              Continue Learning
-            </Button>
+            <div className="transform scale-125 origin-left">
+              <ContinueCard courseId={courseDetail.courseId} />
+            </div>
           ) : (
             <Button variant={"pixel" as any} size="lg" onClick={enrollCourse} disabled={enrollLoading}>
               {enrollLoading ? <Loader className="animate-spin" /> : "Enroll Now"}

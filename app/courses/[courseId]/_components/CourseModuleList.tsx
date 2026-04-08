@@ -84,13 +84,13 @@ export default function CourseModuleList({ courseDetail, loading }: Props) {
             <div className="w-16 h-16 bg-zinc-900 rounded-full flex items-center justify-center text-zinc-700 text-3xl">?!</div>
         </div>
         <div className="space-y-2">
-            <p className="font-game text-white text-lg uppercase tracking-widest">No Quests Detected</p>
-            <p className="text-zinc-500 text-xs font-mono max-w-md mx-auto">
+            <p className="font-game text-white text-2xl uppercase tracking-widest">No Quests Detected</p>
+            <p className="text-zinc-500 text-base font-mono max-w-md mx-auto">
                 WE FOUND THE COURSE, BUT NO MODULES HAVE BEEN ASSIGNED YET. PLEASE CHECK THE DATABASE SEEDER.
             </p>
         </div>
         <div className="pt-4">
-             <Button variant="outline" className="text-[10px] font-game h-8 border-zinc-800" onClick={() => window.location.reload()}>Re-Scan Path</Button>
+             <Button variant="outline" className="text-sm font-game h-10 border-zinc-800" onClick={() => window.location.reload()}>Re-Scan Path</Button>
         </div>
       </div>
     );
@@ -99,9 +99,9 @@ export default function CourseModuleList({ courseDetail, loading }: Props) {
   return (
     <div className="mt-8 space-y-16">
       {/* CHAPTER INDICATOR FOR DEBUGGING */}
-      <div className="bg-emerald-500/10 border border-emerald-500/20 p-4 rounded-xl mb-8 flex items-center justify-between">
-          <span className="text-[10px] font-game text-emerald-500 uppercase tracking-widest">Data Synchronization Active</span>
-          <span className="text-[10px] font-mono text-zinc-500">{courseDetail.chapters.length} Modules Loaded</span>
+      <div className="bg-emerald-500/10 border border-emerald-500/20 p-6 rounded-xl mb-8 flex items-center justify-between">
+          <span className="text-sm font-game text-emerald-500 uppercase tracking-widest">Data Synchronization Active</span>
+          <span className="text-sm font-mono text-zinc-500">{courseDetail.chapters.length} Modules Loaded</span>
       </div>
 
       {courseDetail.chapters.map((chapter, index) => {
@@ -115,11 +115,11 @@ export default function CourseModuleList({ courseDetail, loading }: Props) {
                     {index + 1}
                 </div>
                 <div className="flex flex-col gap-1 flex-1">
-                    <h3 className="text-3xl font-game text-white tracking-tight uppercase">
+                    <h3 className="text-4xl font-game text-white tracking-tight uppercase">
                         {chapter.name || `Quest Module ${index + 1}`}
                     </h3>
-                    <div className="flex items-center gap-4">
-                        <span className="text-zinc-600 text-[10px] font-mono uppercase tracking-[0.2em]">
+                    <div className="flex items-center gap-4 mt-2">
+                        <span className="text-zinc-600 text-sm font-mono uppercase tracking-[0.2em]">
                             {chapter.description || "The journey continues deeper into the core systems"}
                         </span>
                         <div className="h-[1px] flex-1 bg-zinc-900"></div>
@@ -138,14 +138,14 @@ export default function CourseModuleList({ courseDetail, loading }: Props) {
                   return (
                     <div 
                       key={i} 
-                      className={`group relative flex items-center justify-between p-8 bg-zinc-950/80 border-2 border-zinc-900 rounded-[2.5rem] transition-all hover:bg-zinc-900/40 hover:border-zinc-700 shadow-xl ${locked ? 'opacity-30 grayscale pointer-events-none' : 'hover:-translate-y-1'}`}
+                      className={`group relative flex items-center justify-between p-10 bg-zinc-950/80 border-2 border-zinc-900 rounded-[2.5rem] transition-all hover:bg-zinc-900/40 hover:border-zinc-700 shadow-xl ${locked ? 'opacity-30 grayscale pointer-events-none' : 'hover:-translate-y-1'}`}
                     >
                       <div className="flex items-center gap-10">
-                        <div className="flex flex-col gap-1">
-                            <span className="text-[9px] font-black text-zinc-500 uppercase tracking-[0.4em] font-mono">
+                        <div className="flex flex-col gap-2">
+                            <span className="text-sm font-black text-zinc-500 uppercase tracking-[0.4em] font-mono">
                                 Mission {globalNum}
                             </span>
-                            <span className="text-white font-game text-base group-hover:text-yellow-500 transition-colors uppercase leading-none mt-1">
+                            <span className="text-white font-game text-2xl group-hover:text-yellow-500 transition-colors uppercase leading-none mt-1">
                                 {exercise.name || "Untitled Objective"}
                             </span>
                         </div>
@@ -158,7 +158,7 @@ export default function CourseModuleList({ courseDetail, loading }: Props) {
                             <TooltipTrigger asChild>
                               <div className="min-w-[120px] flex justify-end">
                                  {completed ? (
-                                  <div className="bg-emerald-500/10 text-emerald-500 border border-emerald-500/30 px-8 py-3 rounded-2xl text-[10px] font-game uppercase tracking-[0.2em] shadow-lg shadow-emerald-500/5">
+                                  <div className="bg-emerald-500/10 text-emerald-500 border border-emerald-500/30 px-10 py-5 rounded-2xl text-sm font-game uppercase tracking-[0.2em] shadow-lg shadow-emerald-500/5">
                                     Secured
                                   </div>
                                 ) : (
@@ -166,7 +166,7 @@ export default function CourseModuleList({ courseDetail, loading }: Props) {
                                     <Link href={`/courses/${courseDetail.courseId}/${chapter.chapterId}/${exercise.slug}`}>
                                       <Button 
                                         variant="pixel" 
-                                        className="font-game h-12 px-10 text-[12px] hover:shadow-yellow-500/30 active:scale-95 transition-all"
+                                        className="font-game h-16 px-12 text-base hover:shadow-yellow-500/30 active:scale-95 transition-all"
                                       >
                                         Deploy {exercise.xp} XP
                                       </Button>
@@ -175,7 +175,7 @@ export default function CourseModuleList({ courseDetail, loading }: Props) {
                                     <Button 
                                       disabled
                                       variant="pixel-disable" 
-                                      className="font-game h-12 px-10 text-[12px] opacity-40"
+                                      className="font-game h-16 px-12 text-base opacity-40"
                                     >
                                       Locked
                                     </Button>
@@ -183,7 +183,7 @@ export default function CourseModuleList({ courseDetail, loading }: Props) {
                                 )}
                               </div>
                             </TooltipTrigger>
-                            <TooltipContent side="left" className="bg-black text-white border-zinc-700 text-[10px] font-game uppercase tracking-widest px-5 py-3 shadow-2xl">
+                            <TooltipContent side="left" className="bg-black text-white border-zinc-700 text-sm font-game uppercase tracking-widest px-6 py-4 shadow-2xl">
                                {locked ? "Quest Level Restricted" : completed ? "Objective Secured" : "Initiate Quest Deployment"}
                             </TooltipContent>
                           </Tooltip>
@@ -193,8 +193,8 @@ export default function CourseModuleList({ courseDetail, loading }: Props) {
                   );
                 })
               ) : (
-                <div className="p-10 bg-zinc-950/20 border-2 border-dashed border-zinc-900 rounded-[2.5rem] text-center">
-                     <p className="text-zinc-700 text-[10px] font-game uppercase tracking-widest">No active missions detected in this sector</p>
+                <div className="p-12 bg-zinc-950/20 border-2 border-dashed border-zinc-900 rounded-[2.5rem] text-center">
+                     <p className="text-zinc-700 text-base font-game uppercase tracking-widest">No active missions detected in this sector</p>
                 </div>
               )}
             </div>

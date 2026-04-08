@@ -66,8 +66,8 @@ export default function CourseDetailPage() {
           {/* Left Column: Sequential Quest Modules */}
           <div className="xl:col-span-3 space-y-12">
             <div className="flex flex-col gap-2">
-                <h2 className="font-game text-2xl text-white tracking-tight px-1 uppercase">Curriculum Hub</h2>
-                <p className="text-zinc-500 text-xs px-1 font-mono uppercase tracking-[0.2em]">Master the path to enlightenment</p>
+                <h2 className="font-game text-4xl text-white tracking-tight px-1 uppercase">Curriculum Hub</h2>
+                <p className="text-zinc-500 text-sm px-1 font-mono uppercase tracking-[0.2em]">Master the path to enlightenment</p>
             </div>
             {/* New High-Fidelity Module List Replacement */}
             <CourseModuleList courseDetail={courseDetail} loading={loading} />
