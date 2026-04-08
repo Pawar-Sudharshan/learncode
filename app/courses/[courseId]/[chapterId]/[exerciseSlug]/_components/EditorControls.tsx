@@ -36,7 +36,23 @@ export default function EditorControls({ courseExerciseData, showPreview, setSho
       });
 
       if (response.data) {
-        toast.success("Quest Completed! XP Awarded.");
+        if (response.data.xpAwarded === false) {
+           toast.success("Quest updated! Returning to course.");
+        } else {
+           toast.success("Quest Completed! XP Awarded.");
+        }
+
+        // Check if entire course is now complete via resume API
+        const resumeRes = await axios.post('/api/user-resume', { courseId: exercise.courseId });
+        const nextData = resumeRes.data;
+
+        if (nextData.completed) {
+           // All quests done — redirect with celebration trigger
+           window.location.href = `/courses/${exercise.courseId}?completed=true`;
+        } else {
+           // Go back to course details page
+           window.location.href = `/courses/${exercise.courseId}`;
+        }
       }
     } catch (error) {
       console.error("Error marking completion", error);
