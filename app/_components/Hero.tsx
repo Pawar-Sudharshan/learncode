@@ -1,5 +1,7 @@
 import { Button } from '@/components/ui/button'
 import Image from 'next/image'
+import Link from 'next/link'
+import { SignedIn, SignedOut } from '@clerk/nextjs'
 import React from 'react'
 
 function Hero() {
@@ -17,7 +19,16 @@ function Hero() {
             }
             >Learning Journey</h2>
             <h2 className='mt-5 font-game text-3xl'>Beginner friendly coding courses and projects!</h2>
-            <Button className='font-game text-3xl p-6 mt-7' variant={'pixel'}>Get Started</Button>
+            <SignedOut>
+                <Link href='/sign-up'>
+                    <Button className='font-game text-3xl p-6 mt-7' variant={'pixel'}>Get Started</Button>
+                </Link>
+            </SignedOut>
+            <SignedIn>
+                <Link href='/dashboard'>
+                    <Button className='font-game text-3xl p-6 mt-7' variant={'pixel'}>Continue Learning</Button>
+                </Link>
+            </SignedIn>
         </div>
     </div>
   )

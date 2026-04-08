@@ -77,20 +77,20 @@ export default function CourseStatus({ courseDetail, loading }: Props) {
 
   return (
     <div className="bg-zinc-950 p-8 rounded-[2rem] border border-zinc-900 sticky top-10 shadow-2xl transition-all hover:border-zinc-800 backdrop-blur-sm h-full flex flex-col justify-center min-h-[350px]">
-      <h2 className="text-xl font-game text-white/90 mb-10 tracking-tight">Course Progress</h2>
+      <h2 className="text-3xl font-game text-white/90 mb-10 tracking-widest">Course Progress</h2>
       
       <div className="space-y-10">
         {/* Exercises Section */}
         <div className="flex gap-5 items-center group">
-          <div className="bg-zinc-950/50 p-3 rounded-2xl border border-zinc-900/50 group-hover:scale-110 transition-transform duration-300 shadow-inner">
-            <Image src="/tree.png" alt="exercises" width={32} height={32} className="w-8 h-8 object-contain" />
+          <div className="bg-zinc-950/50 p-4 rounded-2xl border border-zinc-900/50 group-hover:scale-110 transition-transform duration-300 shadow-inner">
+            <Image src="/tree.png" alt="exercises" width={40} height={40} className="w-10 h-10 object-contain" />
           </div>
           <div className="flex-1 w-full">
             <div className="flex justify-between items-end mb-2">
-              <span className="font-game text-zinc-500 text-[10px] uppercase tracking-[0.2em]">Exercises</span>
-              <span className="font-mono text-[10px] font-black text-zinc-400">{exercisesCompletedCount}/{totalExercises}</span>
+              <span className="font-game text-zinc-500 text-sm uppercase tracking-[0.2em]">Exercises</span>
+              <span className="font-mono text-sm font-black text-zinc-400">{exercisesCompletedCount}/{totalExercises}</span>
             </div>
-            <div className="h-1.5 w-full bg-zinc-900 rounded-full overflow-hidden border border-zinc-800/20">
+            <div className="h-3 w-full bg-zinc-900 rounded-full overflow-hidden border border-zinc-800/20">
                <div 
                  className="h-full bg-blue-500/60 transition-all duration-1000 ease-out shadow-[0_0_15px_rgba(59,130,246,0.3)]" 
                  style={{ width: `${exercisesProgress}%` }} 
@@ -101,15 +101,15 @@ export default function CourseStatus({ courseDetail, loading }: Props) {
 
         {/* XP Section */}
         <div className="flex gap-5 items-center group">
-          <div className="bg-zinc-950/50 p-3 rounded-2xl border border-zinc-900/50 group-hover:scale-110 transition-transform duration-300 shadow-inner">
-            <Image src="/star.png" alt="star" width={32} height={32} className="w-8 h-8 object-contain" />
+          <div className="bg-zinc-950/50 p-4 rounded-2xl border border-zinc-900/50 group-hover:scale-110 transition-transform duration-300 shadow-inner">
+            <Image src="/star.png" alt="star" width={40} height={40} className="w-10 h-10 object-contain" />
           </div>
           <div className="flex-1 w-full">
             <div className="flex justify-between items-end mb-2">
-              <span className="font-game text-yellow-500/60 text-[10px] uppercase tracking-[0.2em]">XP Earned</span>
-              <span className="font-mono text-[10px] font-black text-zinc-400">{xpEarned}/{totalXP}</span>
+              <span className="font-game text-yellow-500/60 text-sm uppercase tracking-[0.2em]">XP Earned</span>
+              <span className="font-mono text-sm font-black text-zinc-400">{xpEarned}/{totalXP}</span>
             </div>
-            <div className="h-1.5 w-full bg-zinc-900 rounded-full overflow-hidden border border-zinc-800/20">
+            <div className="h-3 w-full bg-zinc-900 rounded-full overflow-hidden border border-zinc-800/20">
                <div 
                  className="h-full bg-yellow-500/60 transition-all duration-1000 ease-out shadow-[0_0_15px_rgba(234,179,8,0.3)]" 
                  style={{ width: `${xpProgress}%` }} 
