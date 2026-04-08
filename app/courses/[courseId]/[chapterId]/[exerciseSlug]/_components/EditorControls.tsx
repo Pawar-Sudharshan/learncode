@@ -37,19 +37,21 @@ export default function EditorControls({ courseExerciseData, showPreview, setSho
 
       if (response.data) {
         if (response.data.xpAwarded === false) {
-           toast.success("Quest updated! Ready for next mission.");
+           toast.success("Quest updated! Returning to course.");
         } else {
            toast.success("Quest Completed! XP Awarded.");
         }
 
-        // Determine next route via resume API
+        // Check if entire course is now complete via resume API
         const resumeRes = await axios.post('/api/user-resume', { courseId: exercise.courseId });
         const nextData = resumeRes.data;
 
         if (nextData.completed) {
+           // All quests done — redirect with celebration trigger
            window.location.href = `/courses/${exercise.courseId}?completed=true`;
         } else {
-           window.location.href = `/courses/${nextData.courseId}/${nextData.chapterId}/${nextData.exerciseSlug}`;
+           // Go back to course details page
+           window.location.href = `/courses/${exercise.courseId}`;
         }
       }
     } catch (error) {
