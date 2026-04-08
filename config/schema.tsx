@@ -52,3 +52,13 @@ export const exercise = pgTable("exercise", {
     exerciseName: varchar("exerciseName").notNull(),
     content: json("content").notNull(),
 });
+
+// Monetization: Dedicated table for Stripe Subscription metadata
+export const userSubscription = pgTable("userSubscription", {
+    id: serial("id").primaryKey(),
+    userId: varchar("userId").unique().notNull(), // Clerk User ID
+    stripeCustomerId: varchar("stripeCustomerId").unique().notNull(),
+    stripeSubscriptionId: varchar("stripeSubscriptionId").unique().notNull(),
+    stripePriceId: varchar("stripePriceId"),
+    stripeCurrentPeriodEnd: timestamp("stripeCurrentPeriodEnd"),
+});
